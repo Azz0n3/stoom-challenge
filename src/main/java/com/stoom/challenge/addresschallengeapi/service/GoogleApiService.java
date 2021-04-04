@@ -1,5 +1,6 @@
 package com.stoom.challenge.addresschallengeapi.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -9,9 +10,12 @@ import com.stoom.challenge.addresschallengeapi.model.GoogleAddressDTO;
 
 @Service
 public class GoogleApiService {
+
+	@Value("${externalService.google.geocode.key}")
+	private String API_KEY;
 	
-	private static final String API_KEY = "AIzaSyCj0cY2yEvVfYhAaTz3-P2MW-YRKmhz5Uw";
-    private final static String GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+	@Value("${externalService.google.geocode.url}")
+    private String GEOCODE_URL;
 
     
     public GoogleAddressDTO getLatNLongByAddress(Address address) {

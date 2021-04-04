@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stoom.challenge.addresschallengeapi.service.AddressService;
@@ -28,16 +29,19 @@ public class AddressController {
 	private AddressService addressService;
 	
 	@PostMapping(path = "",  consumes = "application/json", produces = "application/json")
+	@ResponseStatus( HttpStatus.CREATED )
 	public ResponseEntity<Address> createAddresses(@Valid @RequestBody Address address) {
 		return new ResponseEntity<Address>(this.addressService.createNewAddress(address), HttpStatus.CREATED);
 	}
 
 	@GetMapping(path = "")
+	@ResponseStatus( HttpStatus.OK )
 	public List<Address> indexAddresses() {
 		return addressService.getAllAddresses();
 	}
 	
 	@GetMapping("/{id}")
+	@ResponseStatus( HttpStatus.OK )
 	public ResponseEntity<Address> showAddress(@PathVariable(value="id") Long id) {
 	    return this.addressService.findAddressById(id)
 	            .map(address -> ResponseEntity.ok().body(address))
@@ -46,15 +50,17 @@ public class AddressController {
 	}
 	
 	@DeleteMapping(path = "/{id}")
+	@ResponseStatus( HttpStatus.NO_CONTENT )
 	public ResponseEntity<?> deleteAddress(@PathVariable(value="id") Long id) {
 		   return this.addressService.findAddressById(id)
 		           .map(address -> {
 		        	   this.addressService.deleteAddressById(id);
-		               return ResponseEntity.ok().build();
+		               return ResponseEntity.noContent().build();
 		           }).orElseThrow(() -> new ResourceNotFoundException("Id not found"));
 	}
 	
 	@PutMapping(path = "/{id}")
+	@ResponseStatus( HttpStatus.OK )
 	public ResponseEntity<Address> updateAddress(@PathVariable(value="id") Long id, @Valid @RequestBody Address address) {
 		return this.addressService.findAddressById(id)
 				.map(oldAddress -> {

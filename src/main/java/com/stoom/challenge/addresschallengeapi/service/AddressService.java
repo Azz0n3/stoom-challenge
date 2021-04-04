@@ -42,6 +42,8 @@ public class AddressService {
 	}
 
 	public Address updateAddress(Address address, Address newAddress) {
+		this.setLatNLngForAddress(newAddress);
+	
 		address.setCity(newAddress.getCity());
 		address.setComplement(newAddress.getComplement());
 		address.setCountry(newAddress.getCountry());
