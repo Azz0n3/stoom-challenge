@@ -37,7 +37,8 @@ Create an Address
     + Body
 
             {
-	            "streetName":"Rua Mário De Andradade",
+	    
+	        "streetName":"Rua Mário De Andradade",
 		    "number": "1293",
 		    "Complement": "Chácara",
 		    "neighbourhood": "Beirro Champirra",
@@ -89,8 +90,8 @@ Create an Address
     + Body
 
             {
-	            "id": 1,
-	            "streetName":"Rua Mário De Andradade",
+	        "id": 1,
+	        "streetName":"Rua Mário De Andradade",
 		    "number": "1293",
 		    "Complement": "Chácara",
 		    "neighbourhood": "Beirro Champirra",
@@ -118,7 +119,7 @@ Create an Address
                     "Complement": {
                         "type": "string"
                     },
-                    "neighbourhood": {
+                    "neighbourhood": { 
                         "type": "string"
                     }, 
                     "city": {
