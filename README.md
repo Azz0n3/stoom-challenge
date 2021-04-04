@@ -37,7 +37,6 @@ Create an Address
     + Body
 
             {
-	    
 	        "streetName":"Rua Mário De Andradade",
 		    "number": "1293",
 		    "Complement": "Chácara",
@@ -85,7 +84,241 @@ Create an Address
                 "additionalProperties": false
             }
 
++ Response 201 (application/json)
+
+    + Body
+
+            {
+	        "id": 1,
+	        "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    },
+                    "streetName": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "Complement": {
+                        "type": "string"
+                    },
+                    "neighbourhood": { 
+                        "type": "string"
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
+                },
+                "additionalProperties": false
+            }
+	    
+### GET /address/{id}
+Show an Address
+
 + Response 200 (application/json)
+
+    + Body
+
+            {
+	        "id": 1,
+	        "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    },
+                    "streetName": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "Complement": {
+                        "type": "string"
+                    },
+                    "neighbourhood": { 
+                        "type": "string"
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
+                },
+                "additionalProperties": false
+            }
+	    
+### GET /address
+Get all Addresses
+
++ Response 200  List<(application/json)>
+
+    + Body - *LIST*
+	
+            {
+	        "id": 1,
+	        "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "long"
+                    },
+                    "streetName": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "Complement": {
+                        "type": "string"
+                    },
+                    "neighbourhood": { 
+                        "type": "string"
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
+                },
+                "additionalProperties": false
+            }
+
+### DELETE /address/{id}
+Delete the address of the informed id
+
++ Response 204 (no-content) (application/json)
+
+### PUT /address
+Update an Address
+
++ Request (application/json)
+
+    + Body
+
+            {
+	        "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
+            }
+
+    + Schema
+
+            {
+                "type": "object",
+                "properties": {
+                    "streetName": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "Complement": {
+                        "type": "string"
+                    },
+                    "neighbourhood": {
+                        "type": "string"
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
+                },
+                "additionalProperties": false
+            }
+
++ Response 201 (application/json)
 
     + Body
 
