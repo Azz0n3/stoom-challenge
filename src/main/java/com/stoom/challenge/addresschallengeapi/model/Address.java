@@ -5,42 +5,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 @Entity
 public class Address {
+	
+	private static final String ONLY_NUMBERS_REGEX = "^[0-9]*$";
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, name = "streetName")
+	@NotEmpty(message = "streetName can not be null")
 	private String streetName; 
 	
-	@Column(nullable = false)
+	@Pattern(
+			   regexp = ONLY_NUMBERS_REGEX,
+			   message = "number can contain only numbers")
+    @NotEmpty(message = "number can not be null")
 	private String number; 
-	
+   
 	@Column(nullable = true)
 	private String complement;
 	
-	@Column(nullable = false)
+	@NotEmpty(message = "neighbourhood can not be null")
 	private String neighbourhood; 
 	
-	@Column(nullable = false)
+	@NotEmpty(message = "city can not be null")
 	private String city;
 	
-	@Column(nullable = false)
+	@NotEmpty(message = "state can not be null")
 	private String state; 
 	
-	@Column(nullable = false)
+	@NotEmpty(message = "country can not be null")
 	private String country;
 	
-	@Column(nullable = false)
+	@Pattern(
+			   regexp = ONLY_NUMBERS_REGEX,
+			   message = "zipcode can contain only numbers")
+	@NotEmpty(message = "zipcode can not be null")
 	private String zipcode;
 	
-	@Column(nullable = true)
+	@Digits(fraction = 6, integer = 10, message = "latitudde must be a number with at most 6 fraction digits")
 	private Float latitude;
 	
-	@Column(nullable = true)
+	@Digits(fraction = 6, integer = 10, message = "longitude must be a number with at most 6 fraction digits")
 	private Float longitude;
 
 	@Override
@@ -66,6 +77,10 @@ public class Address {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getStreetName() {
