@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -48,11 +47,9 @@ public class Address {
 	@NotEmpty(message = "zipcode can not be null")
 	private String zipcode;
 	
-	@Digits(fraction = 6, integer = 10, message = "latitudde must be a number with at most 6 fraction digits")
-	private Float latitude;
+	private Double latitude;
 	
-	@Digits(fraction = 6, integer = 10, message = "longitude must be a number with at most 6 fraction digits")
-	private Float longitude;
+	private Double longitude;
 
 	@Override
 	public int hashCode() {
@@ -147,19 +144,19 @@ public class Address {
 		this.zipcode = zipcode;
 	}
 
-	public Float getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(Float latitude) {
+	public void setLatitude(Double latitude) {
 		this.latitude = latitude;
 	}
 
-	public Float getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(Float longitude) {
+	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	} 
 
