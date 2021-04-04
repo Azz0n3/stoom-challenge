@@ -29,18 +29,23 @@ FORMAT: 1A
 
 ## Documentation
 
-### POST /user
-Create an USER entity, that is assigned with a __Plan__, __Token__ and __Logs__, this creates a different environment for each individual, allowing the return of specific statistics for that user's requests.
+### POST /address
+Create an Address
 
 + Request (application/json)
 
     + Body
 
             {
-	            "username": "TestUser",
-	            "password": "testpsw",
-	            "confirmPassword": "testpsw",
-	            "email": "test@test.com"
+	            "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
             }
 
     + Schema
@@ -48,18 +53,33 @@ Create an USER entity, that is assigned with a __Plan__, __Token__ and __Logs__,
             {
                 "type": "object",
                 "properties": {
-                    "username": {
+                    "streetName": {
                         "type": "string"
                     },
-                    "password": {
+                    "number": {
                         "type": "string"
                     },
-                    "confirmPassword": {
+                    "Complement": {
                         "type": "string"
                     },
-                    "email": {
+                    "neighbourhood": {
                         "type": "string"
-                    },                   
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
                 },
                 "additionalProperties": false
             }
@@ -69,7 +89,16 @@ Create an USER entity, that is assigned with a __Plan__, __Token__ and __Logs__,
     + Body
 
             {
-                "id": 1,
+	            "id": 1,
+	            "streetName":"Rua Mário De Andradade",
+		    "number": "1293",
+		    "Complement": "Chácara",
+		    "neighbourhood": "Beirro Champirra",
+		    "city": "Jundiaí",
+		    "state": "São Paulo",
+		    "country": "Brasil",
+		    "latitude": -23.54,
+		    "longitude": 23.56,
             }
 
     + Schema
@@ -78,7 +107,35 @@ Create an USER entity, that is assigned with a __Plan__, __Token__ and __Logs__,
                 "type": "object",
                 "properties": {
                     "id": {
-                        "type": "integer"
-                    }
-                }
+                        "type": "long"
+                    },
+                    "streetName": {
+                        "type": "string"
+                    },
+                    "number": {
+                        "type": "string"
+                    },
+                    "Complement": {
+                        "type": "string"
+                    },
+                    "neighbourhood": {
+                        "type": "string"
+                    }, 
+                    "city": {
+                        "type": "string"
+                    }, 
+                    "state": {
+                        "type": "string"
+                    }, 
+                    "country": {
+                        "type": "string"
+                    },
+                    "latitude": {
+                        "type": "double"
+                    },
+                    "longitude": {
+                        "type": "double"
+                    },		    
+                },
+                "additionalProperties": false
             }
